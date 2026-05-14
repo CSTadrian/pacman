@@ -9,7 +9,7 @@ if not firebase_admin._apps:
     # Load your Firebase service account JSON
     cred = credentials.Certificate(st.secrets["firebase"])
     firebase_admin.initialize_app(cred, {
-        'databaseURL': 'https://console.firebase.google.com/project/pacman-ai-eaf08/database/pacman-ai-eaf08-default-rtdb/data/~2F'
+        'databaseURL': 'https://pacman-ai-eaf08-default-rtdb.asia-southeast1.firebasedatabase.app'
     })
     
 group_choice = st.selectbox("Choose group (1–20)", list(range(1, 21)))
