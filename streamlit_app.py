@@ -36,7 +36,30 @@ if st.button("Join"):
     # Reload group data
     group_data = group_ref.get()
     if group_data.get("pacman") and group_data.get("ghost"):
-        st.info("Group ready! Loading game...")
+        st.info("Group ready! Countdown starting...")
+    
+        countdown_placeholder = st.empty()
+        for i in range(3, 0, -1):
+            countdown_placeholder.markdown(
+                f"""
+                <div style="
+                    position: relative;
+                    height: 600px;
+                    background-color: rgba(0,0,0,0.5);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                ">
+                    <span style="font-size:100px; color:white;">{i}</span>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+            import time
+            time.sleep(1)
+    
+        countdown_placeholder.empty()  # clear overlay
+    
+        # Load the game after countdown
         html_code = open("pacman.html", "r").read()
         st.components.v1.html(html_code, height=600, scrolling=True)
-        
