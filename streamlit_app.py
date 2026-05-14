@@ -35,7 +35,7 @@ if st.button("Join"):
 
     # Reload group data
     group_data = group_ref.get()
-    if group_data["pacman"] and group_data["ghost"]:
+    if group_data.get("pacman") and group_data.get("ghost"):
         st.info("Group ready! Loading game...")
         html_code = open("pacman.html", "r").read()
         st.components.v1.html(html_code, height=600, scrolling=True)
