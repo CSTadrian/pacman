@@ -7,9 +7,9 @@ st.title("Pac-Man AI Game")
 # Initialize Firebase only once
 if not firebase_admin._apps:
     # Load your Firebase service account JSON
-    cred = credentials.Certificate("firebase-key.json")
+    cred = credentials.Certificate(st.secrets["firebase"])
     firebase_admin.initialize_app(cred, {
-        'databaseURL': 'https://YOUR_PROJECT_ID.firebaseio.com'  # <-- replace with your Firebase DB URL
+        'databaseURL': 'https://console.firebase.google.com/project/pacman-ai-eaf08/database/pacman-ai-eaf08-default-rtdb/data/~2F'
     })
     
 group_choice = st.selectbox("Choose group (1–20)", list(range(1, 21)))
