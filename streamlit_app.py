@@ -27,7 +27,7 @@ if st.button("Join"):
         else:
             st.error("Pac-Man slot already taken")
     else:
-        if group_data["ghost"] is None:
+        if group_data.get("ghost") is None:
             group_ref.update({"ghost": username})
             st.success("You joined as Ghost")
         else:
