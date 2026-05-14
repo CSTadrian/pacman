@@ -1,8 +1,17 @@
 import streamlit as st
-from firebase_admin import db  # example backend
+import firebase_admin
+from firebase_admin import credentials, db
 
 st.title("Pac-Man AI Game")
 
+# Initialize Firebase only once
+if not firebase_admin._apps:
+    # Load your Firebase service account JSON
+    cred = credentials.Certificate("firebase-key.json")  # <-- replace with your file path
+    firebase_admin.initialize_app(cred, {
+        'databaseURL': 'https://YOUR_PROJECT_ID.firebaseio.com'  # <-- replace with your Firebase DB URL
+    })
+    
 group_choice = st.selectbox("Choose group (1–20)", list(range(1, 21)))
 role_choice = st.radio("Choose role", ["Pac-Man", "Ghost"])
 username = st.text_input("Enter your name")
