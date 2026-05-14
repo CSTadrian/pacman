@@ -7,7 +7,7 @@ st.title("Pac-Man AI Game")
 # Initialize Firebase only once
 if not firebase_admin._apps:
     # Load your Firebase service account JSON
-    cred = credentials.Certificate("firebase-key.json")  # <-- replace with your file path
+    cred = credentials.Certificate("firebase-key.json")
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://YOUR_PROJECT_ID.firebaseio.com'  # <-- replace with your Firebase DB URL
     })
