@@ -7,7 +7,8 @@ st.title("Pac-Man AI Game")
 # Initialize Firebase only once
 if not firebase_admin._apps:
     # Load your Firebase service account JSON
-    cred = credentials.Certificate(st.secrets["firebase"])
+    firebase_config = dict(st.secrets)  # convert secrets to a dict
+    cred = credentials.Certificate(firebase_config)
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://pacman-ai-eaf08-default-rtdb.asia-southeast1.firebasedatabase.app'
     })
